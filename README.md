@@ -1,4 +1,4 @@
-# QuantumProgressBar
+# Quantum-Progress-Bar
 
 *シュレーディンガーの猫が設計し、ハイゼンベルクがデバッグした究極の量子プログレスバー*  
 **注意: これはジョークライブラリです。**
@@ -21,22 +21,16 @@
 
 量子力学の深遠な理解は不要ですが、Python の基本的な操作スキルは必須です。このライブラリをあなたの古典的システムに注入するには、以下の手順を踏んでください。
 
-1. **量子状態のリポジトリをクローン**:  
+1. **依存関係の観測**:  
+   Python 3.10 以上のバージョンで確認しています。外部ライブラリは量子トンネル効果により不要化されています。(特に依存関係はありません)  
    ```bash
-   git clone https://github.com/yourusername/quantum-progress-bar.git
-   cd quantum-progress-bar
+   python --version  # Python >= 3.10 を確認
    ```
 
-2. **依存関係の観測**:  
-   Python 3.11 以上のバージョンで確認しています。外部ライブラリは量子トンネル効果により不要化されています。(特に依存関係はありません)  
-   ```bash
-   python --version  # Python >= 3.11 を確認
-   ```
-
-3. **波動関数の局在化**:  
+2. **波動関数の局在化**:  
    `pip` を用いて、ローカル時空にライブラリを観測(インストール)します。  
    ```bash
-   pip install .
+   pip install quantum-progress-bar
    ```
 
 ---
@@ -46,7 +40,7 @@
 ### 基本的な量子実験
 単純な量子プログレスバーを観測してみましょう。ただし、観測行為そのものが結果を歪めます。  
 ```python
-from quantum_progress_bar.quantum_progress_bar import quantum_progress
+from quantum_progress_bar import quantum_progress
 
 # プログレスバーを重ね合わせ状態に初期化
 quantum_progress(total=100, width=50, delay=0.2)
@@ -65,6 +59,7 @@ quantum_progress(total=100, width=50, delay=0.2)
 `QuantumProgressBar` クラスを用いて、量子状態を精密に制御（しようと）してください。  
 ```python
 from quantum_progress_bar.quantum_progress_bar import QuantumProgressBar
+import time
 
 # プログレスバーを |ψ⟩ 状態に初期化
 pb = QuantumProgressBar(total_steps=100, collapse_factor=0.3, uncertainty_level=0.9)
