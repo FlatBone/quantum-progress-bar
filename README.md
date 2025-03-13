@@ -137,3 +137,10 @@ with qqdm(total_steps=100) as qbar:
 ## ライセンス
 
 このプロジェクトは MIT ライセンスの下で公開されています。詳細は [LICENSE](LICENSE) をご覧ください。
+
+---
+
+## 参考文献
+- [Über das Gesetz der Energieverteilung im Normalspektrum](https://onlinelibrary.wiley.com/doi/10.1002/andp.19013090310)
+- [Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt](https://onlinelibrary.wiley.com/doi/10.1002/andp.19053220607)
+- [Quantisierung als Eigenwertproblem](https://onlinelibrary.wiley.com/doi/10.1002/andp.19263840404)
