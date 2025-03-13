@@ -1,4 +1,4 @@
-from quantum_progress_bar.quantum_progress_bar import QuantumProgressBar, quantum_progress, quantum_loading
+from quantum_progress_bar import QuantumProgressBar, quantum_progress, quantum_loading
 import time
 
 

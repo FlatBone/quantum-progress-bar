@@ -10,7 +10,6 @@ from .quantum_progress_bar import (
     quantum_progress,
     uncertainty_estimate,
     quantum_loading,
-    quantum_tqdm,
 )
 
 __all__ = [
@@ -18,6 +17,5 @@ __all__ = [
     "quantum_progress",
     "uncertainty_estimate",
     "quantum_loading",
-    "quantum_tqdm",
 ]
 __version__ = "0.1.0"
