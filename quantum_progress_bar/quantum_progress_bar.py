@@ -3,29 +3,68 @@ import time
 import math
 import sys
 from datetime import datetime, timedelta
+from typing import Any, Callable, Dict, Iterable, Iterator, List, Optional, Tuple, TypeVar, Union, cast, Generic
 
-class QuantumProgressBar:
+T = TypeVar('T')
+
+class QuantumProgressBar(Generic[T]):
     """
     A progress bar that behaves according to quantum mechanics principles.
     The progress changes randomly when observed, and the estimated completion time
     has a high degree of uncertainty.
+    
+    This class can be used in multiple ways:
+    
+    1. As a standard progress bar:
+       ```
+       pb = QuantumProgressBar(total_steps=100)
+       pb.quantum_progress()
+       pb.update(10)
+       ```
+       
+    2. As an iterator (tqdm-like):
+       ```
+       for item in QuantumProgressBar(range(100)):
+           process(item)
+       ```
+       
+    3. With a context manager:
+       ```
+       with QuantumProgressBar(total_steps=100) as pb:
+           for i in range(100):
+               process(i)
+               pb.update()
+       ```
     """
-    def __init__(self, total_steps=100, collapse_factor=0.2, uncertainty_level=0.8):
+    def __init__(self, iterable: Optional[Iterable[T]] = None, total_steps=100, collapse_factor=0.2, uncertainty_level=0.8):
         """
         Initialize a quantum progress bar.
         
         Args:
+            iterable (Optional[Iterable]): Optional iterable to wrap with the progress bar
             total_steps (int): Total number of steps to complete
             collapse_factor (float): How much the observation affects the state (0.0-1.0)
             uncertainty_level (float): Level of uncertainty in time estimates (0.0-1.0)
         """
-        self.total_steps = total_steps
-        self.current_state = random.randint(0, total_steps // 3)  # Start with some progress
+        self.iterable = iterable
+        
+        # If iterable is provided and has a known length, use it for total_steps
+        if iterable is not None:
+            try:
+                self.total_steps = len(iterable)  # type: ignore
+            except (TypeError, AttributeError):
+                # Iterable doesn't have a length, use the provided total_steps
+                self.total_steps = total_steps
+        else:
+            self.total_steps = total_steps
+            
+        self.current_state = random.randint(0, self.total_steps // 3)  # Start with some progress
         self.collapse_factor = collapse_factor
         self.uncertainty_level = uncertainty_level
         self.start_time = datetime.now()
         self.observed_states = []
         self.entangled_state = None
+        self.width = 50  # Default width for progress bar
 
     def _collapse_wavefunction(self):
         """
@@ -172,6 +211,79 @@ class QuantumProgressBar:
                     self.entangled_state.total_steps,
                     self.entangled_state.current_state + entangled_change
                 ))
+                
+    def __iter__(self) -> Iterator[T]:
+        """
+        Iterate over the wrapped iterable, updating the progress bar with each iteration.
+        
+        Returns:
+            Iterator: An iterator over the wrapped iterable
+            
+        Raises:
+            TypeError: If no iterable was provided during initialization
+        """
+        if self.iterable is None:
+            raise TypeError("QuantumProgressBar requires an iterable when used as an iterator")
+            
+        # Reset progress bar state
+        self.current_state = 0
+        self.start_time = datetime.now()
+        self.observed_states = []
+        
+        # Iterate over the wrapped iterable
+        for item in self.iterable:
+            # Update progress and display
+            self.update(1)
+            self.quantum_progress(width=self.width)
+            
+            # Yield the item
+            yield item
+            
+        # Ensure we end at 100%
+        self.current_state = self.total_steps
+        self.quantum_progress(width=self.width)
+        print()  # Add a newline after the progress bar
+        
+    def __call__(self, iterable: Iterable[T]) -> 'QuantumProgressBar[T]':
+        """
+        Wrap an iterable with this progress bar.
+        
+        Args:
+            iterable: The iterable to wrap
+            
+        Returns:
+            QuantumProgressBar: A new progress bar wrapping the iterable
+        """
+        return QuantumProgressBar(
+            iterable=iterable,
+            total_steps=self.total_steps,
+            collapse_factor=self.collapse_factor,
+            uncertainty_level=self.uncertainty_level
+        )
+        
+    def __enter__(self) -> 'QuantumProgressBar':
+        """
+        Enter the context manager.
+        
+        Returns:
+            QuantumProgressBar: This progress bar instance
+        """
+        return self
+        
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
+        """
+        Exit the context manager.
+        
+        Args:
+            exc_type: Exception type if an exception was raised
+            exc_val: Exception value if an exception was raised
+            exc_tb: Exception traceback if an exception was raised
+        """
+        # Ensure we end at 100% if no exception occurred
+        if exc_type is None:
+            self.current_state = self.total_steps
+            self.quantum_progress(width=self.width)
+            print()  # Add a newline after the progress bar
 
 
 # Convenience functions
@@ -229,6 +341,36 @@ def uncertainty_estimate():
     """
     pb = QuantumProgressBar()
     return pb.uncertainty_estimate()
+
+def qqdm(iterable: Optional[Iterable[T]] = None, **kwargs) -> QuantumProgressBar[T]:
+    """
+    Quantum tqdm - A tqdm-like wrapper for iterables with quantum behavior.
+    
+    This function provides a tqdm-like interface for the QuantumProgressBar class,
+    allowing you to wrap iterables with a quantum progress bar.
+    
+    Examples:
+        >>> # Wrap a range
+        >>> for i in qqdm(range(100)):
+        >>>     process(i)
+        >>>
+        >>> # Wrap a list comprehension
+        >>> results = [process(i) for i in qqdm(range(100))]
+        >>>
+        >>> # Use with a context manager
+        >>> with qqdm(total_steps=100) as qbar:
+        >>>     for i in range(100):
+        >>>         process(i)
+        >>>         qbar.update(1)
+    
+    Args:
+        iterable: Optional iterable to wrap with the progress bar
+        **kwargs: Additional keyword arguments to pass to QuantumProgressBar
+        
+    Returns:
+        QuantumProgressBar: A progress bar instance
+    """
+    return QuantumProgressBar(iterable=iterable, **kwargs)
 
 def quantum_loading(message="Loading quantum state", duration=5, width=50):
     """

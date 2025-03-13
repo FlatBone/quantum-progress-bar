@@ -2,7 +2,7 @@ import unittest
 import sys
 import io
 import time
-from quantum_progress_bar.quantum_progress_bar import QuantumProgressBar, quantum_progress, uncertainty_estimate, quantum_loading
+from quantum_progress_bar import QuantumProgressBar, quantum_progress, uncertainty_estimate, quantum_loading, qqdm
 
 class TestQuantumProgressBar(unittest.TestCase):
     def setUp(self):
@@ -108,6 +108,65 @@ class TestQuantumProgressBar(unittest.TestCase):
         output = captured_output.getvalue()
         self.assertTrue(len(output.strip()) > 0)
         self.assertIn("Test loading", output)
+        
+    def test_iter(self):
+        """__iter__ メソッドが正しく動作するかテスト"""
+        # イテレータをラップしたQuantumProgressBarをテスト
+        test_range = range(10)
+        pb = QuantumProgressBar(iterable=test_range)
+        
+        # 標準出力をキャプチャ
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        
+        # イテレーションをテスト
+        items = []
+        for item in pb:
+            items.append(item)
+            
+        sys.stdout = sys.__stdout__
+        
+        # 全ての要素が取得できていることを確認
+        self.assertEqual(items, list(test_range))
+        # 出力に進捗バーが含まれていることを確認
+        output = captured_output.getvalue()
+        self.assertIn("%", output)
+        
+    def test_context_manager(self):
+        """コンテキストマネージャとしての動作をテスト"""
+        # 標準出力をキャプチャ
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        
+        # with文でQuantumProgressBarを使用
+        with QuantumProgressBar(total_steps=10) as pb:
+            for i in range(10):
+                pb.update(1)
+                
+        sys.stdout = sys.__stdout__
+        
+        # 出力に進捗バーが含まれていることを確認
+        output = captured_output.getvalue()
+        self.assertIn("%", output)
+        
+    def test_qqdm(self):
+        """qqdm 関数が正しく動作するかテスト"""
+        # 標準出力をキャプチャ
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        
+        # qqdmでイテレータをラップ
+        items = []
+        for item in qqdm(range(10)):
+            items.append(item)
+            
+        sys.stdout = sys.__stdout__
+        
+        # 全ての要素が取得できていることを確認
+        self.assertEqual(items, list(range(10)))
+        # 出力に進捗バーが含まれていることを確認
+        output = captured_output.getvalue()
+        self.assertIn("%", output)
 
 if __name__ == "__main__":
     unittest.main()

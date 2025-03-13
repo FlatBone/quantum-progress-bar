@@ -14,6 +14,7 @@
 - **エンタングルメントの呪い**: 2つのプログレスバーを量子的にリンクさせると、非局所的なスピン相関により、一方の操作が他方を不可解なカオスへと引きずり込みます。  
 - **重ね合わせビジュアル**: プログレスバーの表示は、確率振幅の揺らぎを模した文字（`█▓▒░▄▌`）で構成され、観測者の精神に微弱な量子ノイズを植え付けます。  
 - **カスタマイズ可能**: 総ステップ数、崩壊係数（プランク定数のスケールで調整）、不確実性レベル、そしてディラック記法風の表示幅を自由に操作可能。  
+**tqdmとの重ね合わせ**: `qqdm` 関数を呼び出すことで、イテレータをtqdm風に包み込むと同時に、量子重ね合わせ状態へと引き込みます。古典的な信頼性などという退屈な束縛を捨て去り、ハイゼンベルク的不確実性が支配する進捗の波動関数を観測可能です。
 
 ---
 
@@ -37,6 +38,7 @@
 
 ## 使用方法
 
+
 ### 基本的な量子実験
 単純な量子プログレスバーを観測してみましょう。ただし、観測行為そのものが結果を歪めます。  
 ```python
@@ -58,7 +60,7 @@ quantum_progress(total=100, width=50, delay=0.2)
 ### ディラック記法による高度な操作
 `QuantumProgressBar` クラスを用いて、量子状態を精密に制御（しようと）してください。  
 ```python
-from quantum_progress_bar.quantum_progress_bar import QuantumProgressBar
+from quantum_progress_bar import QuantumProgressBar
 import time
 
 # プログレスバーを |ψ⟩ 状態に初期化
@@ -79,9 +81,33 @@ pb.update(steps=10)  # pb2 も非局所的に影響を受ける
 ### 量子ローディングの虚構
 無限の可能性を秘めたローディングアニメーションを表示します。  
 ```python
-from quantum_progress_bar.quantum_progress_bar import quantum_loading
+from quantum_progress_bar import quantum_loading
 
 quantum_loading(message="ブラックホール内で量子状態を収束中", duration=3, width=50)
+```
+
+### tqdm風の波動的イテレーション
+`qqdm` 関数を用いれば、イテレータを`tqdm`のごとく包み込むと同時に、その存在を量子的な位相空間へと昇華させます。
+
+```python
+from quantum_progress_bar import qqdm
+import time
+
+# 量子場のtqdm風干渉パターン生成器
+for i in qqdm(range(100)):
+    # 何かしらの演算子が状態を遷移させる
+    time.sleep(0.01)
+    
+# リスト内包表記における波束の収縮
+process = lambda x: x * (x + 1)  # 角運動量的エネルギー準位の投影
+results = [process(i) for i in qqdm(range(100))]
+
+# コンテキストマネージャとしてのエンタングルメント
+with qqdm(total_steps=100) as qbar:
+    for i in range(100):
+        # 何かしらの相互作用が場の状態を進化
+        time.sleep(0.01)
+        qbar.update(1)
 ```
 
 ---
@@ -91,6 +117,7 @@ quantum_loading(message="ブラックホール内で量子状態を収束中", d
 - **波動関数の崩壊**: `quantum_progress` が呼び出されると、進捗状態 |ψ⟩ は観測作用素により固有状態に射影され、前進、後退、あるいは虚数時間に迷い込む可能性が現実化します。  
 - **不確定性原理の顕現**: `uncertainty_estimate` は Δt・Δp ≥ ħ/2 の関係を模倣し、残り時間の推定精度が観測頻度に反比例して崩壊します。  
 - **量子エンタングルメントの混沌**: 2つのプログレスバーをエンタングルすると、ベル状態 |Ψ⁻⟩ = (|01⟩ - |10⟩)/√2 が生成され、一方の更新が他方に超光速的な（見かけ上の）影響を及ぼします。  
+- **tqdm互換性の量子的解釈**: `qqdm` 関数は、古典的なtqdmインターフェースと量子的な不確実性の重ね合わせ状態を実現します。シュレーディンガーの猫のように、確定的かつ不確定な進捗を同時に表現します。
 
 ---
 
@@ -110,4 +137,3 @@ quantum_loading(message="ブラックホール内で量子状態を収束中", d
 ## ライセンス
 
 このプロジェクトは MIT ライセンスの下で公開されています。詳細は [LICENSE](LICENSE) をご覧ください。
-
