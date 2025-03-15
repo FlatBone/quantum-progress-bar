@@ -6,7 +6,7 @@
 
 `Quantum-Progress-Bar` is a Python library that embodies the abyssal paradoxes of quantum mechanics. Unlike mundane, classical progress bars, this tool **collapses its wavefunction upon observation, spewing forth random progress from the fog of superposition**. The time to completion is pure chaos, governed by Heisenberg’s uncertainty principle. Let your code tunnel through quantum barriers and surrender to the embrace of quantum entanglement.
 
-[gif](https://github.com/user-attachments/assets/0e416bbd-2278-4a31-81ee-c89b75ca3b01)
+![gif](https://github.com/user-attachments/assets/0e416bbd-2278-4a31-81ee-c89b75ca3b01)
 
 
 ## Features

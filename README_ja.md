@@ -5,7 +5,7 @@
 
 `Quantum-Progress-Bar` は、量子力学の深淵なるパラドックスを具現化したPythonライブラリです。通常の凡庸なプログレスバーとは異なり、このツールは**観測されるたびに状態が波動関数的に崩壊し、重ね合わせの霧からランダムに進捗を吐き出します**。完了までの時間はハイゼンベルクの不確定性原理に支配されたカオスそのものです。あなたのコードを量子トンネル効果で突き抜け、量子エンタングルメントに身を委ねましょう。
 
-[gif](https://github.com/user-attachments/assets/0e416bbd-2278-4a31-81ee-c89b75ca3b01)
+![gif](https://github.com/user-attachments/assets/0e416bbd-2278-4a31-81ee-c89b75ca3b01)
 
 ## 特徴
 
