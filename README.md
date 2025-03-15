@@ -5,7 +5,7 @@
 
 `QuantumProgressBar` は、量子力学の深淵なるパラドックスを具現化したPythonライブラリです。通常の凡庸なプログレスバーとは異なり、このツールは**観測されるたびに状態が波動関数的に崩壊し、重ね合わせの霧からランダムに進捗を吐き出します**。完了までの時間はハイゼンベルクの不確定性原理に支配されたカオスそのものです。あなたのコードを量子トンネル効果で突き抜け、量子エンタングルメントに身を委ねましょう。
 
----
+
 
 ## 特徴
 
@@ -16,7 +16,6 @@
 - **カスタマイズ可能**: 総ステップ数、崩壊係数（プランク定数のスケールで調整）、不確実性レベル、そしてディラック記法風の表示幅を自由に操作可能。  
 **tqdmとの重ね合わせ**: `qqdm` 関数を呼び出すことで、イテレータをtqdm風に包み込むと同時に、量子重ね合わせ状態へと引き込みます。古典的な信頼性などという退屈な束縛を捨て去り、ハイゼンベルク的不確実性が支配する進捗の波動関数を観測可能です。
 
----
 
 ## インストール
 
@@ -34,7 +33,7 @@
    pip install quantum-progress-bar
    ```
 
----
+
 
 ## 使用方法
 
@@ -110,7 +109,7 @@ with qqdm(total_steps=100) as qbar:
         qbar.update(1)
 ```
 
----
+
 
 ## 仕組み（量子力学的解釈）
 
@@ -119,26 +118,26 @@ with qqdm(total_steps=100) as qbar:
 - **量子エンタングルメントの混沌**: 2つのプログレスバーをエンタングルすると、ベル状態 |Ψ⁻⟩ = (|01⟩ - |10⟩)/√2 が生成され、一方の更新が他方に超光速的な（見かけ上の）影響を及ぼします。  
 - **tqdm互換性の量子的解釈**: `qqdm` 関数は、古典的なtqdmインターフェースと量子的な不確実性の重ね合わせ状態を実現します。シュレーディンガーの猫のように、確定的かつ不確定な進捗を同時に表現します。
 
----
+
 
 ## 実用性
 進捗を量子的に捉え、不確定性を受け入れることで、あなたのプロジェクトに新たな視点を提供します。
 `QuantumProgressBar` は、量子力学の不条理さを味わいながら、あなたのコードに哲学的深みを与えるためのツールです。
 進捗が100%に達する保証はありませんが、それはむしろ人生そのもののメタファーではないでしょうか。
 
----
+
 
 ## コントリビューション
 
 量子カオスに耐えうる勇気あるコントリビューターを歓迎します。バグ報告（観測による状態変化のせいにしてください）、新機能提案（例: スピン偏極プログレスバー）、コードの最適化（量子超越性を目指して）、ドキュメントの追加（ブラックホール蒸発の解説など）をお待ちしています。
 
----
+
 
 ## ライセンス
 
 このプロジェクトは MIT ライセンスの下で公開されています。詳細は [LICENSE](LICENSE) をご覧ください。
 
----
+
 
 ## 参考文献
 - [Über das Gesetz der Energieverteilung im Normalspektrum](https://onlinelibrary.wiley.com/doi/10.1002/andp.19013090310)
@@ -154,7 +153,7 @@ with qqdm(total_steps=100) as qbar:
 
 `QuantumProgressBar` is a Python library that embodies the abyssal paradoxes of quantum mechanics. Unlike mundane, classical progress bars, this tool **collapses its wavefunction upon observation, spewing forth random progress from the fog of superposition**. The time to completion is pure chaos, governed by Heisenberg’s uncertainty principle. Let your code tunnel through quantum barriers and surrender to the embrace of quantum entanglement.
 
----
+
 
 ## Features
 
@@ -165,7 +164,7 @@ with qqdm(total_steps=100) as qbar:
 - **Customizable**: Freely tweak total steps, collapse coefficient (scaled to Planck’s constant), uncertainty level, and Dirac notation-inspired display width.  
 - **Superposition with tqdm**: Calling the `qqdm` function wraps an iterator in a tqdm-like shell while simultaneously dragging it into a quantum superposition state. Cast aside the dull shackles of classical reliability and observe a progress wavefunction dominated by Heisenberg uncertainty.
 
----
+
 
 ## Installation
 
@@ -183,7 +182,7 @@ No profound understanding of quantum mechanics is required, but basic Python ski
    pip install quantum-progress-bar
    ```
 
----
+
 
 ## Usage
 
@@ -258,7 +257,7 @@ with qqdm(total_steps=100) as qbar:
         qbar.update(1)
 ```
 
----
+
 
 ## How It Works (Quantum Mechanical Interpretation)
 
@@ -267,18 +266,16 @@ with qqdm(total_steps=100) as qbar:
 - **Chaos of Quantum Entanglement**: Entangling two progress bars generates a Bell state |Ψ⁻⟩ = (|01⟩ - |10⟩)/√2, where updating one exerts a seemingly superluminal influence on the other.  
 - **Quantum Interpretation of tqdm Compatibility**: The `qqdm` function realizes a superposition of classical tqdm interfaces and quantum uncertainty. Like Schrödinger’s cat, it simultaneously expresses deterministic and indeterminate progress.
 
----
 
 ## Practicality
 By viewing progress through a quantum lens and embracing uncertainty, `QuantumProgressBar` offers a fresh perspective on your projects. It’s a tool to savor the absurdity of quantum mechanics while adding philosophical depth to your code. There’s no guarantee progress will reach 100%, but isn’t that a metaphor for life itself?
 
----
+
 
 ## Contribution
 
 We welcome brave contributors who can withstand quantum chaos. We await bug reports (blame them on observation-induced state changes), feature suggestions (e.g., spin-polarized progress bars), code optimizations (aiming for quantum supremacy), and documentation additions (like explanations of black hole evaporation).
 
----
 
 ## License
 
