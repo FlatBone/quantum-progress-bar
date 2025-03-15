@@ -21,7 +21,7 @@ for _ in range(5):
     print(f" Estimated time: {pb.uncertainty_estimate()}")
     time.sleep(0.1)
 
-print("\n3. Quatum entanglement")
+print("\n3. Quantum entanglement")
 print("-" * 30)
 # Entangle with another progress bar
 pb2 = QuantumProgressBar(total_steps=100)
@@ -32,7 +32,7 @@ print()
 pb2.quantum_progress(width=50)
 print()
 
-print("\n4. Qunatum loading animation")
+print("\n4. Quantum loading animation")
 print("-" * 30)
 quantum_loading(message="Loading quantum state", duration=2, width=50)
 

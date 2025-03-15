@@ -3,7 +3,7 @@
 *シュレーディンガーの猫が設計し、ハイゼンベルクがデバッグした究極の量子プログレスバー*  
 **注意: これはジョークライブラリです。**
 
-`QuantumProgressBar` は、量子力学の深淵なるパラドックスを具現化したPythonライブラリです。通常の凡庸なプログレスバーとは異なり、このツールは**観測されるたびに状態が波動関数的に崩壊し、重ね合わせの霧からランダムに進捗を吐き出します**。完了までの時間はハイゼンベルクの不確定性原理に支配されたカオスそのものです。あなたのコードを量子トンネル効果で突き抜け、量子エンタングルメントに身を委ねましょう。
+`Quantum-Progress-Bar` は、量子力学の深淵なるパラドックスを具現化したPythonライブラリです。通常の凡庸なプログレスバーとは異なり、このツールは**観測されるたびに状態が波動関数的に崩壊し、重ね合わせの霧からランダムに進捗を吐き出します**。完了までの時間はハイゼンベルクの不確定性原理に支配されたカオスそのものです。あなたのコードを量子トンネル効果で突き抜け、量子エンタングルメントに身を委ねましょう。
 
 
 
@@ -57,7 +57,7 @@ quantum_progress(total=100, width=50, delay=0.2)
 ```
 
 ### ディラック記法による高度な操作
-`QuantumProgressBar` クラスを用いて、量子状態を精密に制御（しようと）してください。  
+`Quantum-Progress-Bar` クラスを用いて、量子状態を精密に制御（しようと）してください。  
 ```python
 from quantum_progress_bar import QuantumProgressBar
 import time
@@ -122,7 +122,7 @@ with qqdm(total_steps=100) as qbar:
 
 ## 実用性
 進捗を量子的に捉え、不確定性を受け入れることで、あなたのプロジェクトに新たな視点を提供します。
-`QuantumProgressBar` は、量子力学の不条理さを味わいながら、あなたのコードに哲学的深みを与えるためのツールです。
+`Quantum-Progress-Bar` は、量子力学の不条理さを味わいながら、あなたのコードに哲学的深みを与えるためのツールです。
 進捗が100%に達する保証はありませんが、それはむしろ人生そのもののメタファーではないでしょうか。
 
 
@@ -151,7 +151,7 @@ with qqdm(total_steps=100) as qbar:
 *Designed by Schrödinger’s cat and debugged by Heisenberg—the ultimate quantum progress bar*  
 **Note: This is a joke library.**
 
-`QuantumProgressBar` is a Python library that embodies the abyssal paradoxes of quantum mechanics. Unlike mundane, classical progress bars, this tool **collapses its wavefunction upon observation, spewing forth random progress from the fog of superposition**. The time to completion is pure chaos, governed by Heisenberg’s uncertainty principle. Let your code tunnel through quantum barriers and surrender to the embrace of quantum entanglement.
+`Quantum-Progress-Bar` is a Python library that embodies the abyssal paradoxes of quantum mechanics. Unlike mundane, classical progress bars, this tool **collapses its wavefunction upon observation, spewing forth random progress from the fog of superposition**. The time to completion is pure chaos, governed by Heisenberg’s uncertainty principle. Let your code tunnel through quantum barriers and surrender to the embrace of quantum entanglement.
 
 
 
@@ -205,7 +205,7 @@ Sample output (collapsing with each observation):
 ```
 
 ### Advanced Manipulation with Dirac Notation
-Use the `QuantumProgressBar` class to (attempt to) precisely control quantum states.  
+Use the `Quantum-Progress-Bar` class to (attempt to) precisely control quantum states.  
 ```python
 from quantum_progress_bar import QuantumProgressBar
 import time
@@ -268,7 +268,7 @@ with qqdm(total_steps=100) as qbar:
 
 
 ## Practicality
-By viewing progress through a quantum lens and embracing uncertainty, `QuantumProgressBar` offers a fresh perspective on your projects. It’s a tool to savor the absurdity of quantum mechanics while adding philosophical depth to your code. There’s no guarantee progress will reach 100%, but isn’t that a metaphor for life itself?
+By viewing progress through a quantum lens and embracing uncertainty, `Quantum-Progress-Bar` offers a fresh perspective on your projects. It’s a tool to savor the absurdity of quantum mechanics while adding philosophical depth to your code. There’s no guarantee progress will reach 100%, but isn’t that a metaphor for life itself?
 
 
 
